@@ -1,0 +1,37 @@
+<materials>
+  <element Z="7" name="Nitrogen" formula="N">
+  <atom value="14.01" unit="g/mole" />
+</element>
+<element Z="8" name="Oxytem" formula="O">
+  <atom value="16.00" unit="g/mole" />
+</element>      
+
+<material name="Air" formula="air" >
+  <D value="1.29" unit="mg/cm3" />
+  <fraction n="0.79" ref="Nitrogen" />
+  <fraction n="0.21" ref="Oxygen" />
+</material>      
+</materials>
+
+  <solids>
+    <box lunit="mm" name="world_solid" x="10000" y="10000" z="10000" />
+  </solids>
+
+  <structure>
+    <volume name="world_logic">
+      <materialref ref="Air" />
+      <solidref ref="world_solid" />
+
+      <physvol>
+	<file name="magnets.gdml" />
+	<positionref ref="HallCenter" />
+      </physvol>
+    </volume>
+      
+  </structure>
+  
+  <setup name="Default" version="1.0">
+    <world ref="world_logic" />
+  </setup>
+
+</gdml>

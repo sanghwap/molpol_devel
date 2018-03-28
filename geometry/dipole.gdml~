@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE gdml [
+<!ENTITY materials SYSTEM "materials.xml">
+]>
+
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema/gdml.xsd">
+  
+  <define>
+    <constant name="MDP1_length_X" value="10"/>
+    <constant name="MDP1_length_Y" value="40"/>
+    <constant name="MDP1_length_Z" value="76"/>
+
+    <constant name="DBI1_length_X" value="6.0" />
+    <constant name="DBI1_length_Y" value="16.5"/>
+    <constant name="DBI1_length_Z" value="98.5"/>
+
+    <constant name="DBV1_length_X" value="5.295"/>
+    <constant name="DBV1_length_Y" value="16.0" />
+    <constant name="DBV1_length_Z" value="98.5" />
+
+    <constant name="DMS1_length_X" value="3."/>
+    <constant name="DMS1_length_Y" value="15." />
+    <constant name="DMS1_length_Z" value="96.2" />
+
+    <constant name="DMBH_rmin" value="0"/>
+    <constant name="DMBH_rmax" value="2" />
+    <constant name="DMBH_length_Z" value="96.2" />
+
+    <constant name="DMFR_rmin" value="1.27"/>
+    <constant name="DMFR_rmax" value="2" />
+    <constant name="DMFR_length_Z" value="9.0" />
+
+    <constant name="DBW1_length_X" value="11.66"/>
+    <constant name="DBW1_length_Y" value="21.4" />
+    <constant name="DBW1_length_Z" value="0.64" />
+
+    <constant name="DBW2_rmin" value="0"/>
+    <constant name="DBW2_rmax" value="3.0" />
+    <constant name="DBW2_length_Z" value="0.64" />
+
+    <constant name="DBW3_length_X" value="1.18"/>
+    <constant name="DBW3_length_Y" value="8.0" />
+    <constant name="DBW3_length_Z" value="0.64" />
+
+    <constant name="DBW4_length_X" value="1.18"/>
+    <constant name="DBW4_length_Y" value="8.0" />
+    <constant name="DBW4_length_Z" value="0.64" />
+
+    <constant name="DBT3_length_X" value="1.18"/>
+    <constant name="DBT3_length_Y" value="8.0" />
+    <constant name="DBT3_length_Z" value="0.005" />
+
+    <constant name="DBT4_length_X" value="1.18"/>
+    <constant name="DBT4_length_Y" value="8.0" />
+    <constant name="DBT4_length_Z" value="0.005" />
+
+    <constant name="DBI1_X" value="0"/>
+    <constant name="DBI1_Y" value="-9"/>
+    <constant name="DBI1_Z" value="422.8"/>
+
+    <constant name="DBV1_X" value="0"/>
+    <constant name="DBV1_Y" value="0"/>
+    <constant name="DBV1_Z" value="0"/>
+
+    <constant name="DBW1_X" value="0"/>
+    <constant name="DBW1_Y" value="-9"/>
+    <constant name="DBW1_Z" value="521.94"/>
+
+    <constant name="DBW2_X" value="0"/>
+    <constant name="DBW2_Y" value="9"/>
+    <constant name="DBW2_Z" value="0"/>
+
+    <constant name="DBW3_X" value="-4.13"/>
+    <constant name="DBW3_Y" value="-7"/>
+    <constant name="DBW3_Z" value="0"/>
+
+    <constant name="DBW4_X" value="4.13"/>
+    <constant name="DBW4_Y" value="-7"/>
+    <constant name="DBW4_Z" value="0"/>
+
+    <constant name="DBT3_X" value="0"/>
+    <constant name="DBT3_Y" value="0"/>
+    <constant name="DBT3_Z" value="0"/>
+
+    <constant name="DBT4_X" value="0"/>
+    <constant name="DBT4_Y" value="0"/>
+    <constant name="DBT4_Z" value="0"/>
+
+    <constant name="DMS1_X" value="0"/>
+    <constant name="DMS1_Y" value="0"/>
+    <constant name="DMS1_Z" value="0"/>
+
+    <constant name="DMBH_X" value="0"/>
+    <constant name="DMBH_Y" value="9"/>
+    <constant name="DMBH_Z" value="0"/>
+
+    <constant name="DMFR_X" value="0"/>
+    <constant name="DMFR_Y" value="0"/>
+    <constant name="DMFR_Z" value="-87.2"/>
+
+
+    <position unit="cm" name="MDP1_pos" x="16" y="-9" z="422.8"/>
+
+    <position unit="cm" name="dbox_sub2_pos" x="DMS1_X+DBV1_X" y="DMS1_Y+DBV1_Y" z="DMS1
+_Z+DBV1_Z"/>
+    <position unit="cm" name="dbox_sub3_pos" x="DMBH_X+DMS1_X+DBV1_X" y="DMBH_Y+DMS1_Y+DBV1_Y" z="DMBH_Z+DMS1_Z+DBV1_Z"/>
+    <position unit="cm" name="dbox_sub4_pos" x="DMFR_X+DMBH_X+DMS1_X+DBV1_X" y="DMFR_Y+DMBH_Y+DMS1_Y+DBV1_Y" z="DMFR_Z+DMBH_Z+DMS1_Z+DBV1_Z"/>
+    <position unit="cm" name="dbox_sub5_pos" x="DBW2_X" y="DBW2_Y" z="DBW2_Z" />
+    <position unit="cm" name="dbox_sub6_pos" x="DBW3_X" y="DBW3_Y" z="DBW3_Z" />
+    <position unit="cm" name="dbox_sub7_pos" x="DBW4_X" y="DBW4_Y" z="DBW4_Z" />
+
+  </define>
+
+  <materials>
+  </materials>
+
+  <solids>
+    <box lunit="cm" name="DBI1_box" x="DBI1_length_X" y="DBI1_length_Y" z="DBI1_length_Z" />
+    <box lunit="cm" name="DBV1_box" x="DBV1_length_X" y="DBV1_length_Y" z="DBV1_length_Z" />
+    <box lunit="cm" name="DMS1_box" x="DMS1_length_X" y="DMS1_length_Y" z="DMS1_length_Z"/>
+
+    <!-- collimator at the entrance -->
+    <box lunit="cm" name="DBW1_box" x="DBW1_length_X" y="DBW1_length_Y" z="DBW1_length_Z"/>
+    <box lunit="cm" name="DBW3_box" x="DBW3_length_X" y="DBW3_length_Y" z="DBW3_length_Z"/>
+    <box lunit="cm" name="DBW4_box" x="DBW4_length_X" y="DBW4_length_Y" z="DBW4_length_Z"/>
+    <tube aunit="deg" deltaphi="360" lunit="cm" name="DBW2_tube" rmax="DBW2_rmax" rmin="DBW2_rmin" startphi="0" z="DBW2_length_Z"/>
+
+    <tube aunit="deg" deltaphi="360" lunit="cm" name="DMBH_tube" rmax="DMBH_rmax" rmin="DMBH_rmin" startphi="0" z="DMBH_length_Z"/>
+    <tube aunit="deg" deltaphi="360" lunit="cm" name="DMFR_tube" rmax="DMRF_rmax" rmin="DMFR_rmin" startphi="0" z="DMFR_length_Z"/>
+
+
+    <!-- dipole box -->
+    <subtraction name="dbox_sub1">
+      <first ref="DBI1_box"/><second ref="DBV1_box"/>
+      <positionref ref="DBV1_pos"/>
+      <rotationref ref="identity"/>
+    </subtraction>
+
+    <union name="dbox_sub2">
+      <first ref="dbox_sub1"/><second ref="DMS1_box"/>
+      <positionref ref="dbox_sub2_pos"/>
+      <rotationref ref="identity"/>
+    </union>
+
+    <subtraction name="dbox_sub3">
+      <first ref="dbox_sub2"/><second ref="DMBH_box"/>
+      <positionref ref="dbox_sub3_pos"/>
+      <rotationref ref="identity"/>
+    </subtraction>
+
+    <union name="dbox_sub4">
+      <first ref="dbox_sub3"/><second ref="DMFR_box"/>
+      <positionref ref="dbox_sub4_pos"/>
+      <rotationref ref="identity"/>
+    </union>      
+
+    <!-- collimator at the entrance -->
+    <subtraction name="dbox_sub5">
+      <first ref="DBW1_box"/><second ref="DBW2_tube"/>
+      <positionref ref="dbox_sub5_pos"/>
+      <rotationref ref="identity"/>
+    </subtraction>
+
+    <subtraction name="dbox_sub6">
+      <first ref="dbox_sub5"/><second ref="DBW3_box"/>
+      <positionref ref="dbox_sub6_pos"/>
+      <rotationref ref="identity"/>
+    </subtraction>
+
+    <subtraction name="dbox_sub7">
+      <first ref="dbox_sub6"/><second ref="DBW4_box"/>
+      <positionref ref="dbox_sub7_pos"/>
+      <rotationref ref="identity"/>
+    </subtraction>
+
+    <!-- dipole magnets -->
+    <box lunit="cm" name="MDP1_box" x="MDP1_length_X" y="MDP1_length_Y" z="MDP1_length_Z"/>
+
+  </solids>
+
+  <structure>
+    <volume name="dbox_logic">
+      <materialref ref="siliconsteel"/>
+      <solidref ref="dbox_sub4"/>
+      <!--
+	  <auxiliary auxtype="SensDet" auxvalue="coilDet"/>
+	  <auxiliary auxtype="DetNo" auxvalue="3001"/>
+	  <auxiliary auxtype="Color" auxvalue="magenta"/>
+      -->
+    </volume>
+
+    <volume name="coll_logic">
+      <materialref ref="siliconsteel"/>
+      <solidref ref="dbox_sub4"/>
+
+      
+  </structure>

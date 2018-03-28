@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<gdml xmlns:gdml="http://cern.ch/2001/Schemas/GDML"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="schema/gdml.xsd" >
+
+  <!-- Qaudrupole Magnets -->
+  <!--
+      GPARVOL73  'MDP1' 210  'HALL'  -16.   -9.  422.8  0  'BOX '  3  10.   40.     76.0
+      GPARVOL74  'MDP2' 210  'HALL'   16.   -9.  422.8  0  'BOX '  3  10.   40.     76.0   
+  -->
+
+  <define>
+    <constant name="RMIN_Q1" value="5.08" />
+    <constant name="RMIN_Q2" value="5.08" />
+    <constant name="RMIN_Q3" value="5.08" />    
+    <constant name="RMIN_Q4" value="5.08" />
+
+    <constant name="RMAX_Q1" value="20.0" />
+    <constant name="RMAX_Q2" value="20.0" />
+    <constant name="RMAX_Q3" value="20.0" />    
+    <constant name="RMAX_Q4" value="20.0" />
+
+    <constant name="DZ_Q1" value="18.29" />
+    <constant name="DZ_Q2" value="22.30" />
+    <constant name="DZ_Q3" value="18.37" />
+    <constant name="DZ_Q4" value="18.37" />
+
+    <position name="POS_Q1" unit="cm" x="0" y="0" z="75.19" />
+    <position name="POS_Q2" unit="cm" x="0" y="0" z="140.46" />
+    <position name="POS_Q3" unit="cm" x="0" y="0" z="209.08" />
+    <position name="POS_Q4" unit="cm" x="0" y="0" z="274.59" />
+  </define>
+
+  <materials>
+    <element Z="26" name="Iron" formula="Fe">
+      <atom value="55.85" unit="g/mole" />
+    </element>
+    <element Z="14" name="Silicon" formula="Si">
+      <atom value="28.09" unit="g/mole" />
+    </element>
+
+    <material name="SiliconSteel" formula="FeSi">
+      <D value="7.65" unit="g/cm3" />
+      <composite n="11" ref="Iron" />
+      <composite n="1" ref="Silicon" />
+    </material>
+
+    <material Z="1" name="Vacuum" state="gas">
+      <D value="1.e-15" unit="mg/cm3" />
+      <T value="293.15" unit="K" />
+      <P value="1.e-19" unit="pascal" />
+      <atom value="1.01" unit="g/mole" />
+    </material>
+  </materials>
+
+  <solids>
+    <!-- Quadrupole magnets -->
+    <tube lunit="cm" aunit="deg" name="q1_solid" rmin="RMIN_Q1" rmax="RMAX_Q1" z="DZ_Q1" deltaphi="360" startphi="0" />
+    <tube lunit="cm" aunit="deg" name="q2_solid" rmin="RMIN_Q2" rmax="RMAX_Q2" z="DZ_Q1" deltaphi="360" startphi="0" />
+    <tube lunit="cm" aunit="deg" name="q3_solid" rmin="RMIN_Q3" rmax="RMAX_Q3" z="DZ_Q1" deltaphi="360" startphi="0" />
+    <tube lunit="cm" aunit="deg" name="q4_solid" rmin="RMIN_Q4" rmax="RMAX_Q4" z="DZ_Q1" deltaphi="360" startphi="0" />
+
+    <tube lunit="cm" aunit="deg" name="q1mag_solid" rmin="0" rmax="RMIN_Q1" z="DZ_Q1" deltaphi="360" startphi="0" />
+    <tube lunit="cm" aunit="deg" name="q2mag_solid" rmin="0" rmax="RMIN_Q2" z="DZ_Q1" deltaphi="360" startphi="0" />
+    <tube lunit="cm" aunit="deg" name="q3mag_solid" rmin="0" rmax="RMIN_Q3" z="DZ_Q1" deltaphi="360" startphi="0" />
+    <tube lunit="cm" aunit="deg" name="q4mag_solid" rmin="0" rmax="RMIN_Q4" z="DZ_Q1" deltaphi="360" startphi="0" />
+
+  </solids>
+
+  <structure>
+    <volume name="q1_logic">
+      <materialref ref="SiliconSteel" />      
+      <solidref ref="q1_solid" />
+
+      <physvol name="q1_phys">
+	<volumeref ref="q1_logic" />
+	<positionref ref="POS_Q1" />
+      </physvol>
+    </volume>
+
+    <volume name="q2_logic">
+      <materialref ref="SiliconSteel" />      
+      <solidref ref="q2_solid" />
+
+      <physvol name="q2_phys">
+	<volumeref ref="q2_logic" />
+	<positionref ref="POS_Q2" />
+      </physvol>
+    </volume>
+
+    <volume name="q3_logic">
+      <materialref ref="SiliconSteel" />      
+      <solidref ref="q3_solid" />
+      
+      <physvol name="q3_phys">
+	<volumeref ref="q3_logic" />
+	<positionref ref="POS_Q3" />
+      </physvol>
+    </volume>
+    
+    <volume name="q4_logic">
+      <materialref ref="SiliconSteel" />      
+      <solidref ref="q4_solid" />
+
+      <physvol name="q4_phys">
+	<volumeref ref="q4_logic" />
+	<positionref ref="POS_Q4" />
+      </physvol>
+    </volume>
+
+    <volume name="q1mag_logic">
+      <materialref ref="Vacuum" />      
+      <solidref ref="q1mag_solid" />
+
+      <physvol name="q1mag_phys">
+	<volumeref ref="q1mag_logic" />
+	<positionref ref="POS_Q1" />
+      </physvol>
+    </volume>
+
+    <volume name="q2mag_logic">
+      <materialref ref="Vacuum" />      
+      <solidref ref="q2mag_solid" />
+
+      <physvol name="q2mag_phys">
+	<volumeref ref="q2mag_logic" />
+	<positionref ref="POS_Q2" />
+      </physvol>
+    </volume>
+
+    <volume name="q3mag_logic">
+      <materialref ref="Vacuum" />      
+      <solidref ref="q3mag_solid" />
+
+      <physvol name="q3mag_phys">
+	<volumeref ref="q3mag_logic" />
+	<positionref ref="POS_Q3" />
+      </physvol>
+    </volume>
+
+    <volume name="q4mag_logic">
+      <materialref ref="Vacuum" />      
+      <solidref ref="q4mag_solid" />
+
+      <physvol name="q4mag_phys">
+	<volumeref ref="q4mag_logic" />
+	<positionref ref="POS_Q4" />
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+  </setup>
+
+</gdml>
